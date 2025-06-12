@@ -2,6 +2,9 @@ from circleshape import *
 from constants import *
 
 class Player(CircleShape):
+
+    containers = ()
+
     def __init__(self, x, y):
         self.radius = PLAYER_RADIUS
         super().__init__(x, y, self.radius)
