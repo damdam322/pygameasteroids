@@ -35,10 +35,14 @@ def display_screen():
         for item in drawable:
             item.draw(screen)
 
-        for item in asteroids:
-            if item.collision(player_obj):
+        for asteroid in asteroids:
+            if asteroid.collision(player_obj):
                 print("Game over!")
                 return
+            for bullet in bullets:
+                if bullet.collision(asteroid):
+                    bullet.kill()
+                    asteroid.split()
 
         dt = clock.tick(60) / 1000
         print(dt)
